@@ -3,10 +3,10 @@
 <!-- HERO SECTION -->
 <div class="relative bg-gray-900 text-white h-[85vh] flex items-center justify-center text-center px-4">
     <div class="absolute inset-0 bg-black opacity-60 z-10"></div>
-    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1589939705384-5185137a7f0f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');"></div>
+    <!-- Fixed Image: Painter painting a wall -->
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1562259949-e8e7689d7828?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');"></div>
     
     <div class="relative z-20 max-w-4xl mx-auto">
-        <!-- Responsive Text Sizes: text-4xl on mobile, text-7xl on desktop -->
         <h1 class="text-4xl md:text-7xl font-extrabold mb-4 tracking-tight leading-tight">BusQuad <span class="text-yellow-500">Global Consults</span></h1>
         <p class="text-xl md:text-3xl font-light italic mb-8 border-l-4 border-yellow-500 pl-4 inline-block">"We bring your imaginations to reality"</p>
         <div class="flex flex-col md:flex-row justify-center gap-4 mt-8">
@@ -36,10 +36,10 @@
                     <li><i class="fas fa-check-circle text-yellow-500 mr-2"></i> Professional Finish</li>
                 </ul>
             </div>
-            <!-- Images stack on mobile -->
+            <!-- Images: Interior finishing and Worker -->
             <div class="md:w-1/2 grid grid-cols-2 gap-4 mt-8 md:mt-0">
-                <img src="https://images.unsplash.com/photo-1594943962657-3f338d128d5d?auto=format&fit=crop&w=600&q=80" class="rounded-lg shadow-xl w-full h-48 md:h-64 object-cover transform md:translate-y-8">
-                <img src="https://plus.unsplash.com/premium_photo-1678752717095-08cd0bd1d7e7?auto=format&fit=crop&w=600&q=80" class="rounded-lg shadow-xl w-full h-48 md:h-64 object-cover">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80" class="rounded-lg shadow-xl w-full h-48 md:h-64 object-cover transform md:translate-y-8">
+                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80" class="rounded-lg shadow-xl w-full h-48 md:h-64 object-cover">
             </div>
         </div>
     </div>
@@ -55,21 +55,24 @@
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="bg-white rounded-xl shadow-lg overflow-hidden group">
-                <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800" class="w-full h-48 object-cover">
+                <!-- Image: Paint Roller -->
+                <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80" class="w-full h-48 object-cover">
                 <div class="p-6">
                     <h3 class="text-xl font-bold text-gray-900 mb-2">Professional Painting</h3>
                     <p class="text-gray-600 text-sm">Interior and exterior painting using weather-resistant and washable paints.</p>
                 </div>
             </div>
             <div class="bg-white rounded-xl shadow-lg overflow-hidden group">
-                <img src="https://images.unsplash.com/photo-1628744876497-eb30460be9f6?auto=format&fit=crop&w=800" class="w-full h-48 object-cover">
+                <!-- Image: Smooth Wall/POP -->
+                <img src="https://images.unsplash.com/photo-1594943962657-3f338d128d5d?auto=format&fit=crop&w=800&q=80" class="w-full h-48 object-cover">
                 <div class="p-6">
                     <h3 class="text-xl font-bold text-gray-900 mb-2">POP & Screeding</h3>
                     <p class="text-gray-600 text-sm">Expert wall screeding for glass-like smoothness and intricate POP ceiling designs.</p>
                 </div>
             </div>
             <div class="bg-white rounded-xl shadow-lg overflow-hidden group">
-                <img src="https://images.unsplash.com/photo-1595188880628-98c56fa7439a?auto=format&fit=crop&w=800" class="w-full h-48 object-cover">
+                <!-- Image: Paint Cans -->
+                <img src="https://images.unsplash.com/photo-1595188880628-98c56fa7439a?auto=format&fit=crop&w=800&q=80" class="w-full h-48 object-cover">
                 <div class="p-6">
                     <h3 class="text-xl font-bold text-gray-900 mb-2">Paint Production</h3>
                     <p class="text-gray-600 text-sm">We formulate and produce high-quality paints tailored to your specific color needs.</p>
@@ -86,7 +89,8 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <% projects.forEach(p => { %>
                 <div class="relative group overflow-hidden rounded-lg shadow-lg cursor-pointer">
-                    <img src="<%= p.imageUrl %>" class="w-full h-64 object-cover">
+                    <!-- Added error handler for broken portfolio images -->
+                    <img src="<%= p.imageUrl %>" onerror="this.src='https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=600'" class="w-full h-64 object-cover">
                     <div class="absolute inset-0 bg-black bg-opacity-70 flex flex-col items-center justify-center p-4 text-center">
                         <h3 class="text-white font-bold text-lg mb-2"><%= p.title %></h3>
                         <p class="text-gray-300 text-sm"><%= p.description %></p>
@@ -99,11 +103,12 @@
                 </div>
             <% } %>
         </div>
+        <!-- Note about uploads on Render -->
+        <p class="text-xs text-gray-400 text-center mt-4">* Note: On free hosting, uploaded portfolio images may reset periodically.</p>
     </div>
 </div>
 
 <!-- QUOTE & CONTACT -->
-<!-- Stacks vertically on mobile (grid-cols-1), side-by-side on desktop (md:grid-cols-2) -->
 <div class="grid grid-cols-1 md:grid-cols-2 bg-blue-900 text-white">
     
     <!-- QUOTE FORM -->
