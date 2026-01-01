@@ -1,0 +1,11 @@
+<%- include('header') %>
+<div class="flex justify-center items-center h-screen">
+    <form action="/register" method="POST" class="bg-white p-8 rounded shadow-md w-96">
+        <h2 class="text-2xl font-bold mb-4">Register</h2>
+        <input type="text" name="name" placeholder="Full Name" class="w-full border p-2 mb-4 rounded" required>
+        <input type="email" name="email" placeholder="Email" class="w-full border p-2 mb-4 rounded" required>
+        <input type="password" name="password" placeholder="Password" class="w-full border p-2 mb-4 rounded" required>
+        <button class="w-full bg-green-600 text-white py-2 rounded">Register</button>
+    </form>
+</div>
+<%- include('footer') %>

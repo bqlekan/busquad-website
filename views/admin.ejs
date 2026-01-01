@@ -1,0 +1,47 @@
+<%- include('header') %>
+<div class="container mx-auto py-10 px-6">
+    <h1 class="text-3xl font-bold mb-8">Admin Dashboard</h1>
+
+    <!-- Upload Job -->
+    <div class="bg-white p-6 rounded shadow mb-10">
+        <h3 class="text-xl font-bold mb-4">Upload Completed Job</h3>
+        <form action="/admin/project" method="POST" enctype="multipart/form-data" class="flex flex-col gap-4">
+            <input type="text" name="title" placeholder="Project Title" class="border p-2" required>
+            <input type="text" name="description" placeholder="Description" class="border p-2" required>
+            <input type="file" name="projectImage" class="border p-2" required>
+            <button class="bg-blue-600 text-white py-2 w-48 rounded">Upload to Site</button>
+        </form>
+    </div>
+
+    <!-- Quote Requests -->
+    <h3 class="text-xl font-bold mb-4">Quote Requests</h3>
+    <div class="bg-white rounded shadow overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+            <thead class="bg-gray-200">
+                <tr>
+                    <th class="p-3">Date</th>
+                    <th class="p-3">Name</th>
+                    <th class="p-3">Service</th>
+                    <th class="p-3">Details</th>
+                    <th class="p-3">Image</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% quotes.forEach(q => { %>
+                    <tr class="border-b">
+                        <td class="p-3"><%= q.date.toDateString() %></td>
+                        <td class="p-3"><%= q.customerName %> <br> <span class="text-xs text-gray-500"><%= q.email %></span></td>
+                        <td class="p-3"><%= q.service %></td>
+                        <td class="p-3"><%= q.details %></td>
+                        <td class="p-3">
+                            <% if(q.referenceImage) { %>
+                                <a href="<%= q.referenceImage %>" target="_blank" class="text-blue-500 underline">View</a>
+                            <% } else { %> - <% } %>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+</div>
+<%- include('footer') %>

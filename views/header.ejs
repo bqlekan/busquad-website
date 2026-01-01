@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BusQuad Global Consults</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <nav class="bg-gray-900 px-6 py-4 text-white fixed w-full top-0 z-50 shadow-lg">
+        <div class="container mx-auto flex flex-wrap justify-between items-center">
+            <!-- LOGO AND NAME SECTION -->
+            <a href="/" class="flex items-center gap-3">
+                <!-- If you don't have a logo file yet, this icon shows. If you put logo.png in public, change the src below -->
+                <div class="bg-white p-1 rounded-full h-10 w-10 flex items-center justify-center overflow-hidden">
+                    <!-- CHANGE src="/logo.png" TO YOUR ACTUAL LOGO FILE -->
+                    <img src="/logo.png" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3135/3135715.png'" class="h-full w-full object-cover">
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-bold text-xl text-yellow-500 tracking-wide uppercase">BusQuad</span>
+                    <span class="text-xs text-gray-300 tracking-widest">Global Consults</span>
+                </div>
+            </a>
+
+            <!-- NAVIGATION LINKS -->
+            <div class="hidden md:flex items-center gap-6 text-sm font-medium">
+                <a href="/" class="hover:text-yellow-500 transition">Home</a>
+                <a href="/#about" class="hover:text-yellow-500 transition">About Us</a>
+                <a href="/#services" class="hover:text-yellow-500 transition">Services</a>
+                <a href="/#portfolio" class="hover:text-yellow-500 transition">Portfolio</a>
+                <a href="/#contact" class="hover:text-yellow-500 transition">Contact</a>
+                
+                <% if(currentUser) { %>
+                    <a href="/logout" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded transition">Logout</a>
+                <% } else { %>
+                    <a href="/login" class="border border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-gray-900 px-4 py-2 rounded transition">Login</a>
+                <% } %>
+            </div>
+        </div>
+    </nav>
+    <div class="mt-20">
