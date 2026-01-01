@@ -10,14 +10,12 @@
         html { scroll-behavior: smooth; }
     </style>
 </head>
-<body class="bg-gray-50 font-sans">
+<body class="bg-gray-50 font-sans leading-relaxed">
     <nav class="bg-gray-900 px-6 py-4 text-white fixed w-full top-0 z-50 shadow-lg">
         <div class="container mx-auto flex flex-wrap justify-between items-center">
             <!-- LOGO AND NAME SECTION -->
-            <a href="/" class="flex items-center gap-3">
-                <!-- If you don't have a logo file yet, this icon shows. If you put logo.png in public, change the src below -->
+            <a href="/" class="flex items-center gap-3 z-50 relative">
                 <div class="bg-white p-1 rounded-full h-10 w-10 flex items-center justify-center overflow-hidden">
-                    <!-- CHANGE src="/logo.png" TO YOUR ACTUAL LOGO FILE -->
                     <img src="/logo.png" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3135/3135715.png'" class="h-full w-full object-cover">
                 </div>
                 <div class="flex flex-col">
@@ -26,7 +24,12 @@
                 </div>
             </a>
 
-            <!-- NAVIGATION LINKS -->
+            <!-- MOBILE MENU BUTTON (Visible only on small screens) -->
+            <button id="mobile-btn" class="md:hidden z-50 focus:outline-none">
+                <i class="fas fa-bars text-2xl text-yellow-500"></i>
+            </button>
+
+            <!-- DESKTOP NAVIGATION LINKS -->
             <div class="hidden md:flex items-center gap-6 text-sm font-medium">
                 <a href="/" class="hover:text-yellow-500 transition">Home</a>
                 <a href="/#about" class="hover:text-yellow-500 transition">About Us</a>
@@ -40,6 +43,50 @@
                     <a href="/login" class="border border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-gray-900 px-4 py-2 rounded transition">Login</a>
                 <% } %>
             </div>
+
+            <!-- MOBILE MENU (Hidden by default, slides down) -->
+            <div id="mobile-menu" class="fixed inset-0 bg-gray-900 bg-opacity-95 z-40 hidden flex-col items-center justify-center space-y-8 text-xl transform transition-transform duration-300">
+                <a href="/" class="mobile-link hover:text-yellow-500">Home</a>
+                <a href="/#about" class="mobile-link hover:text-yellow-500">About Us</a>
+                <a href="/#services" class="mobile-link hover:text-yellow-500">Services</a>
+                <a href="/#portfolio" class="mobile-link hover:text-yellow-500">Portfolio</a>
+                <a href="/#contact" class="mobile-link hover:text-yellow-500">Contact</a>
+                <% if(currentUser) { %>
+                    <a href="/logout" class="text-red-500">Logout</a>
+                <% } else { %>
+                    <a href="/login" class="text-yellow-500">Login</a>
+                <% } %>
+            </div>
         </div>
     </nav>
     <div class="mt-20">
+
+    <!-- JAVASCRIPT FOR MOBILE MENU -->
+    <script>
+        const btn = document.getElementById('mobile-btn');
+        const menu = document.getElementById('mobile-menu');
+        const links = document.querySelectorAll('.mobile-link');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('flex');
+            const icon = btn.querySelector('i');
+            if(menu.classList.contains('flex')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times'); // Change to X icon
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars'); // Change back to hamburger
+            }
+        });
+
+        // Close menu when a link is clicked
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+                menu.classList.remove('flex');
+                btn.querySelector('i').classList.add('fa-bars');
+                btn.querySelector('i').classList.remove('fa-times');
+            });
+        });
+    </script>
