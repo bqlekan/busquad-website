@@ -3,7 +3,7 @@
 <!-- HERO SECTION -->
 <div class="relative bg-gray-900 text-white h-[85vh] flex items-center justify-center text-center px-4">
     <div class="absolute inset-0 bg-black opacity-60 z-10"></div>
-    <!-- Fixed Image: Painter painting a wall -->
+    <!-- Hero Image: Painter working -->
     <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1562259949-e8e7689d7828?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');"></div>
     
     <div class="relative z-20 max-w-4xl mx-auto">
@@ -36,7 +36,7 @@
                     <li><i class="fas fa-check-circle text-yellow-500 mr-2"></i> Professional Finish</li>
                 </ul>
             </div>
-            <!-- Images: Interior finishing and Worker -->
+            <!-- Images: Interior finishing -->
             <div class="md:w-1/2 grid grid-cols-2 gap-4 mt-8 md:mt-0">
                 <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80" class="rounded-lg shadow-xl w-full h-48 md:h-64 object-cover transform md:translate-y-8">
                 <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80" class="rounded-lg shadow-xl w-full h-48 md:h-64 object-cover">
@@ -54,25 +54,27 @@
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Service 1: Painting -->
             <div class="bg-white rounded-xl shadow-lg overflow-hidden group">
-                <!-- Image: Paint Roller -->
                 <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80" class="w-full h-48 object-cover">
                 <div class="p-6">
                     <h3 class="text-xl font-bold text-gray-900 mb-2">Professional Painting</h3>
                     <p class="text-gray-600 text-sm">Interior and exterior painting using weather-resistant and washable paints.</p>
                 </div>
             </div>
+
+            <!-- Service 2: POP & Screeding (UPDATED IMAGE) -->
             <div class="bg-white rounded-xl shadow-lg overflow-hidden group">
-                <!-- Image: Smooth Wall/POP -->
-                <img src="https://images.unsplash.com/photo-1594943962657-3f338d128d5d?auto=format&fit=crop&w=800&q=80" class="w-full h-48 object-cover">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" class="w-full h-48 object-cover">
                 <div class="p-6">
                     <h3 class="text-xl font-bold text-gray-900 mb-2">POP & Screeding</h3>
                     <p class="text-gray-600 text-sm">Expert wall screeding for glass-like smoothness and intricate POP ceiling designs.</p>
                 </div>
             </div>
+
+            <!-- Service 3: Paint Production (UPDATED IMAGE) -->
             <div class="bg-white rounded-xl shadow-lg overflow-hidden group">
-                <!-- Image: Paint Cans -->
-                <img src="https://images.unsplash.com/photo-1595188880628-98c56fa7439a?auto=format&fit=crop&w=800&q=80" class="w-full h-48 object-cover">
+                <img src="https://images.unsplash.com/photo-1584713503693-bb386ec95cf2?auto=format&fit=crop&w=800&q=80" class="w-full h-48 object-cover">
                 <div class="p-6">
                     <h3 class="text-xl font-bold text-gray-900 mb-2">Paint Production</h3>
                     <p class="text-gray-600 text-sm">We formulate and produce high-quality paints tailored to your specific color needs.</p>
@@ -89,7 +91,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <% projects.forEach(p => { %>
                 <div class="relative group overflow-hidden rounded-lg shadow-lg cursor-pointer">
-                    <!-- Added error handler for broken portfolio images -->
+                    <!-- Error Handler for uploads -->
                     <img src="<%= p.imageUrl %>" onerror="this.src='https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=600'" class="w-full h-64 object-cover">
                     <div class="absolute inset-0 bg-black bg-opacity-70 flex flex-col items-center justify-center p-4 text-center">
                         <h3 class="text-white font-bold text-lg mb-2"><%= p.title %></h3>
@@ -103,7 +105,6 @@
                 </div>
             <% } %>
         </div>
-        <!-- Note about uploads on Render -->
         <p class="text-xs text-gray-400 text-center mt-4">* Note: On free hosting, uploaded portfolio images may reset periodically.</p>
     </div>
 </div>
